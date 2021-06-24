@@ -20,23 +20,23 @@
 //     if (counter >= 10) {
 //       token.body();
 //       if (counter >= 20) {
-//         // if (place >= 1) {
-//         //   if (rN !== 2) {
-//         //     //fake.body();
-//         //   }
-//         //   if (rN === 2 /*&& fake token state=0*/) {
-//         //     birb.body();
-//         //   }
-//         //   if (birb.body() === false) {
-//         //     bluzuk.body();
-//         //   }
-//         //   if (xpres /*fake.body()*/) {
-//         //     dolphin.body();
-//         //   }
-//         // }
-//         // if (xpres /*place===1*/) {
-//         //   crab.body();
-//         // }
+//         if (place >= 1) {
+//           if (rN !== 2) {
+//             //fake.body();
+//           }
+//           if (rN === 2 /*&& fake token state=0*/) {
+//             birb.body();
+//           }
+//           if (birb.body() === false) {
+//             bluzuk.body();
+//           }
+//           if (xpres /*fake.body()*/) {
+//             dolphin.body();
+//           }
+//         }
+//         if (xpres /*place===1*/) {
+//           crab.body();
+//         }
 //       }
 //     }
 //     //all 5 (special) tokens
@@ -47,3 +47,23 @@
 //     // crab.body();
 //   }
 // }
+
+// individuals() {
+//   if (ind1.body()) {
+//     colony.push("token"); //array into which individuals are pushed (?)
+//   }
+// }
+// displayColony() {
+//   if (food.hitTest()) {
+//     this.x = this.x + 50;
+//   }
+// }
+
+/*WARNING: 
+AS IT IS, THIS CLASS BREAKS THE tamagotchi.js WHEN IMPORTED.
+IT HAS THEREFORE BEEN COMMENTED IN THE tamagotchi.js .
+IF IT'S IMPORTED AND THE tamagotchi.js BREAKS, 
+COMMENT THE CONTENDS OF THIS ENTIRE JS-FILE, 
+THEN COMMENT THE IMPORT IN THE tamagotchi.js, 
+THEN UNCOMMENT THE CONTENTS OF THIS FILE.
+*/

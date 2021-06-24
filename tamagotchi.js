@@ -24,7 +24,7 @@ function mouseClicked() {
 //SUBSTRACTING FROM THE FOOD COUNTER
 while (counter > 0) {
   counter = counter - 1;
-}
+} //only does stuff when in draw function, but still not right
 
 //TO DRAW EVERYTHING ON SCREEN
 function draw() {
