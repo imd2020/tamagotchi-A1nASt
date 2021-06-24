@@ -5,7 +5,7 @@
 //  "4.crab token.png"      (Eissiedlerkrebs)
 //  "5.dolphin token.png"   (Delphinus Sapiens)
 
-import Feeder from "./FeederClass.js";
+//import Feeder from "./FeederClass.js";
 
 export default class Individual {
   constructor(x, y, s, img) {

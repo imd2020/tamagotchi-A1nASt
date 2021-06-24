@@ -15,7 +15,7 @@ let dolphin = new Individual(50, -280, 0.48, "5.dolphin token.png", 1);
 
 //ADDING TO THE FOOD COUNTER
 function mouseClicked() {
-  if (food.hitTest()) {
+  if (button.hitTest()) {
     counter = counter + 2;
   }
   console.log(counter);

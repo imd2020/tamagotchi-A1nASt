@@ -47,14 +47,3 @@
 //     // crab.body();
 //   }
 // }
-
-// // individuals() {
-// //   if (ind1.body()) {
-// //     colony.push("token"); //array into which individuals are pushed (?)
-// //   }
-// // }
-// // displayColony() {
-// //   if (food.hitTest()) {
-// //     this.x = this.x + 50;
-// //   }
-// // }
