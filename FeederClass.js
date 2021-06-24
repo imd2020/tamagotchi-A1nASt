@@ -1,7 +1,7 @@
-background(255, 255, 255);
+//background(255, 255, 255);
 
 //BUTTON
-class Feeder {
+export default class Feeder {
   constructor(x, y, s) {
     this.x = x;
     this.y = y;
@@ -9,10 +9,12 @@ class Feeder {
   }
 
   displayButton() {
-    fill(200, 100, 90);
-    stroke(0, 0, 0);
+    stroke(100, 100, 100);
+    strokeWeight(1);
+    noFill();
     rect(0 * this.s + this.x, 0 * this.s + this.y, 100, 25);
-    text("FOOD", 32, 16);
+    textAlign(CENTER);
+    text("OFFER TRIBUTE", 50, 18);
   }
 
   hitTest() {
@@ -25,18 +27,4 @@ class Feeder {
       return true;
     }
   }
-}
-
-let food = new Feeder(1, 1, 1);
-let satiation = [];
-
-function mouseClicked() {
-  if (food.hitTest()) {
-    satiation.push("food");
-  }
-  console.log(satiation);
-}
-
-function draw() {
-  food.displayButton(1, 1, 1);
 }

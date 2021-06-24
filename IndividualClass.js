@@ -1,10 +1,19 @@
+//LIST OF TOKEN PNGs:
+//  "1.any token.png"       (Token)
+//  "2.birb token.png"      (Birdbush)
+//  "3.bluzuk token.png"    (Bluzuk)
+//  "4.crab token.png"      (Eissiedlerkrebs)
+//  "5.dolphin token.png"   (Delphinus Sapiens)
+
+import Feeder from "./FeederClass.js";
+
 export default class Individual {
-  constructor(x, y, s, img, foodPoint) {
+  constructor(x, y, s, img) {
     this.x = x;
     this.y = y;
     this.s = s;
     this.img = loadImage(img);
-    this.satiationArray = foodPoint;
+    //this.tributeArray = foodPoint;
   }
 
   body() {
@@ -16,18 +25,7 @@ export default class Individual {
     return true;
   }
 
-  state() {
-    satiationArray.push(foodPoint);
-  }
+  // state() {
+  //   tributeArray.push(foodPoint);
+  // }
 }
-
-// let test = new Individual(-150, 0, 0.5, "standard Tamatoken.png");
-// let token2 = new Individual(-385, -165, 0.3, "standard Tamatoken.png");
-
-// function draw() {
-//   token2.body();
-//   test.body();
-// }
-
-//This Class contains the individual pictures for the tokens
-//(?)along with their individual(?) spawn conditions(?)
