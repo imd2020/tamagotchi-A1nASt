@@ -2,7 +2,7 @@
 
 //BUTTON
 export default class Feeder {
-  constructor(x, y, s) {
+  constructor(x, y, s, counter) {
     this.x = x;
     this.y = y;
     this.s = s;
@@ -28,3 +28,12 @@ export default class Feeder {
     }
   }
 }
+
+//const moveBar = { x: 200 };
+//*insert draw function here*
+// gsap.to(moveBar, {
+//   duration: 10,
+//   x: 500,
+//   //ease: "linear",
+//   onComplete: () => {},
+// });
