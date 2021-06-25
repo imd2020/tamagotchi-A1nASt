@@ -9,73 +9,79 @@ let dolphin = new Individual(50, -280, 0.48, "5.dolphin token.png");
 let fake = new Individual(10, 300, 0.5, "6.fake token.png");
 
 export default class Colony {
-  constructor(token, birb, bluzuk, crab, dolphin, fake, counter) {
+  constructor(token, birb, bluzuk, crab, dolphin, fake, xPosBar, tokenArray) {
     this.token = token;
     this.birb = birb;
     this.bluzuk = bluzuk;
     this.crab = crab;
     this.dolphin = dolphin;
     this.fake = fake;
-    this.counter = counter;
+    this.xPosBar = xPosBar;
+    this.tokeArray = tokenArray;
   }
 
   spawnConditions() {
     //STARTER TOKEN
-    if (counter >= 10 && counter < 20) {
+    if (xPosBar >= 20 && xPosBar < 40) {
       token.body();
+      tokenArray.push["token"];
     }
     //ADD BIRB
-    if (counter >= 20 && counter < 30) {
+    if (xPosBar >= 40 && xPosBar < 60) {
       token.body(); //keep starter token
       birb.body();
+      tokenArray.push["token"];
     }
     //ADD BLUZUK
-    if (counter >= 30 && counter < 40) {
+    if (xPosBar >= 60 && xPosBar < 80) {
       token.body(); //keep starter token
       birb.body(); //keep birb
       bluzuk.body();
+      tokenArray.push["token"];
     }
 
-    if (counter >= 40 && counter < 50) {
+    if (xPosBar >= 80 && xPosBar < 100) {
       token.body(); //keep starter token
       birb.body(); //keep birb
       bluzuk.body(); //keep bluzuk
     }
     //ADD DOLPHIN
-    if (counter >= 50 && counter < 60) {
+    if (xPosBar >= 100 && xPosBar < 120) {
       token.body(); //keep starter token
       birb.body(); //keep birb
       bluzuk.body(); //keep bluzuk
       dolphin.body();
+      tokenArray.push["token"];
     }
 
-    if (counter >= 60 && counter < 70) {
+    if (xPosBar >= 120 && xPosBar < 140) {
       token.body(); //keep starter token
       birb.body(); //keep birb
       bluzuk.body(); //keep bluzuk
       dolphin.body(); //keep dolphin
     }
 
-    if (counter >= 70 && counter < 80) {
+    if (xPosBar >= 140 && xPosBar < 160) {
       token.body(); //keep starter token
       birb.body(); //keep birb
       bluzuk.body(); //keep bluzuk
       dolphin.body(); //keep dolphin
     }
 
-    if (counter >= 80 && counter < 90) {
+    if (xPosBar >= 160 && xPosBar < 180) {
       token.body(); //keep starter token
       birb.body(); //keep birb
       bluzuk.body(); //keep bluzuk
       dolphin.body(); //keep dolphin
     }
     //ADD CRAB
-    if (counter >= 90) {
+    if (xPosBar >= 180) {
       token.body(); //keep starter token
       birb.body(); //keep birb
       bluzuk.body(); //keep bluzuk
       dolphin.body(); //keep dolphin
       crab.body();
+      tokenArray.push["token"];
     }
   }
 }

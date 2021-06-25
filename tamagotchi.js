@@ -2,39 +2,132 @@ import gsap from "./gsap.min.js";
 
 import Colony from "./ColonyClass.js";
 import Feeder from "./FeederClass.js";
-
+let gameState = "start";
 //let images = {token: loadImage("1.any token.png"),}; //for HTML integration
-let counter = 10;
+let xPosBar = 0;
+let tokenArray = [];
+let counter = 25;
 //FEEDER IMPORT
-let button = new Feeder(1, 1, 1);
-let allTokens = new Colony(token, birb, bluzuk, crab, dolphin, fake, counter);
-
-//FOOD BAR
-function feederBar() {
-  fill(100, 0, 100);
-  rect(200, 0, counter, 20);
-}
+let tributeButton = new Feeder(1, 1, 1, "OFFER TRIBUTE");
+let startButton = new Feeder(1, 1, 1, "START GAME");
+let restartButton = new Feeder(1, 1, 1, "RESTART GAME");
+let allTokens = new Colony(token, birb, bluzuk, crab, dolphin, fake, xPosBar);
 
 //ADDING TO THE FOOD COUNTER
 function mouseClicked() {
-  if (button.hitTest() && counter < 100) {
-    counter = counter + 2;
-    if (counter >= 100) {
-      counter = 100;
+  if (
+    (startButton.hitTest() && gameState === "start") ||
+    (startButton.hitTest() && gameState === "play")
+  ) {
+    gameState = "play";
+  }
+  // if (restartButton.hitTest() && gameState === "end") {
+  //   gameState = "start";
+  // }
+  if (tributeButton.hitTest() && xPosBar <= 200 && xPosBar > 0) {
+    counter = counter + 10.4;
+    if (xPosBar > 200) {
+      xPosBar = 200;
     }
   }
-  //console.log(counter);
+  console.log(gameState);
 }
 
-//SUBSTRACTING FROM THE FOOD COUNTER
-// while (counter > 0) {
-//   counter = counter - 1;
-// } //only does stuff when in draw function, but still not right
+//RETRACTING FROM FOOD COUNTER
+let hungry = 0;
+function hunger() {
+  xPosBar = counter - hungry;
+  if (xPosBar >= 0) {
+    hungry = hungry + 0.4;
+  }
+  if (xPosBar <= 0) {
+    gameState = "start";
+    xPosBar = 25;
+  }
+  if (xPosBar >= 200) {
+    gameState = "start";
+    xPosBar = 35;
+  }
+}
 
-//TO DRAW EVERYTHING ON SCREEN
-function draw() {
+function feederBar() {
+  fill(100, 0, 100);
+  rect(200, 0, xPosBar, 20);
+}
+
+//MAIN GAME SCREEN
+function tamagotchi() {
   background(50, 50, 40);
+  hunger();
   feederBar();
-  button.displayButton();
+  tributeButton.displayButton();
   allTokens.spawnConditions();
+}
+
+//START SCREEN
+function startScreen() {
+  background(50, 50, 40);
+  //START BUTTON
+  startButton.displayButton();
+  fill(200, 200, 200);
+  stroke(100, 100, 100);
+  textAlign(CENTER);
+  textSize(30);
+  text("Welcome to Tamatoken!", 350, 200);
+  textSize(20);
+  text("Tokens are pretentious beings.", 350, 300);
+  text("They requiere regular tributes to be kept around.", 350, 330);
+  text("Some more than others.", 350, 360);
+  text("But if you can meet all their needs, it'll be a real party!", 350, 390);
+  text("Are you up to it?", 350, 420);
+  text(
+    "Or will you be remembered as the great party pooper of the century?",
+    350,
+    450
+  );
+  //return true;
+}
+
+//NOT ACTUALLY USED 'COUSE I'M TOO TIRED TO THINK AND DON'T HAVE TIME
+function endScreen() {
+  background(50, 50, 40);
+  //START BUTTON
+  restartButton.displayButton();
+  fill(200, 200, 200);
+  stroke(100, 100, 100);
+  textAlign(CENTER);
+  textSize(30);
+  text("Game Over, party pooper. ;(", 350, 200);
+}
+function successScreen() {
+  background(50, 50, 40);
+  //START BUTTON
+  restartButton.displayButton();
+  fill(200, 200, 200);
+  stroke(100, 100, 100);
+  textAlign(CENTER);
+  textSize(30);
+  text(
+    "Success! You are the Token-Party food supplier! I mean king! Yay!",
+    350,
+    200
+  );
+}
+
+function draw() {
+  if (gameState === "start") {
+    startScreen();
+  }
+  if (gameState === "play") {
+    tamagotchi();
+  }
+  if (gameState === "end") {
+    startScreen();
+  }
+  // if (tokenArray[4] === "token") {
+  //   gameState = "victory";
+  // }
+  // if (gameState === "victory") {
+  //   endScreen();
+  // }
 }

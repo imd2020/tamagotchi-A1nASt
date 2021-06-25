@@ -1,9 +1,10 @@
 //BUTTON
 export default class Feeder {
-  constructor(x, y, s) {
+  constructor(x, y, s, text) {
     this.x = x;
     this.y = y;
     this.s = s;
+    this.text = text;
   }
 
   displayButton() {
@@ -12,7 +13,8 @@ export default class Feeder {
     noFill();
     rect(0 * this.s + this.x, 0 * this.s + this.y, 100, 25);
     textAlign(CENTER);
-    text("OFFER TRIBUTE", 50, 18);
+    textSize(10);
+    text(this.text, 50, 18);
   }
 
   hitTest() {
