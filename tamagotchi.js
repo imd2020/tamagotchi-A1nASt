@@ -141,3 +141,6 @@ function draw() {
     startScreen();
   }
 }
+
+//PS.:  This code seems like a mess to me.
+//PPS.: Whoever has to read this, I'm sorry. Have a nice day. :)
