@@ -14,7 +14,7 @@ export default class Feeder {
     rect(0 * this.s + this.x, 0 * this.s + this.y, 100, 25);
     textAlign(CENTER);
     textSize(10);
-    text(this.text, 50, 18);
+    text(this.text, 50 * this.s + this.x, 16 * this.s + this.y);
   }
 
   hitTest() {
