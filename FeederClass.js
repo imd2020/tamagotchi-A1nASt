@@ -1,5 +1,3 @@
-//background(255, 255, 255);
-
 //BUTTON
 export default class Feeder {
   constructor(x, y, s, counter) {
@@ -28,12 +26,3 @@ export default class Feeder {
     }
   }
 }
-
-//const moveBar = { x: 200 };
-//*insert draw function here*
-// gsap.to(moveBar, {
-//   duration: 10,
-//   x: 500,
-//   //ease: "linear",
-//   onComplete: () => {},
-// });

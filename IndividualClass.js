@@ -6,8 +6,6 @@
 //  "5.dolphin token.png"   (Delphinus Sapiens)
 //  "6.fake token.png"      (Fake Token)
 
-//import Feeder from "./FeederClass.js";
-
 export default class Individual {
   constructor(x, y, s, img, tokenState) {
     this.x = x;
@@ -23,12 +21,5 @@ export default class Individual {
     scale(this.s);
     image(this.img, 0 * this.s + this.x, 0 * this.s + this.y);
     pop();
-    if (counter >= 10 && tokenCount < maxSeats) {
-      tokenState = "present";
-    }
   }
-
-  // state() {
-  //   tributeArray.push(foodPoint);
-  // }
 }
