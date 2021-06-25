@@ -7,12 +7,11 @@
 //  "6.fake token.png"      (Fake Token)
 
 export default class Individual {
-  constructor(x, y, s, img, tokenState) {
+  constructor(x, y, s, img) {
     this.x = x;
     this.y = y;
     this.s = s;
     this.img = loadImage(img);
-    this.tokenState = tokenState;
   }
 
   body() {

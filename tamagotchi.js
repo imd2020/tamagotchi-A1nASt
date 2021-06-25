@@ -5,8 +5,6 @@ import Feeder from "./FeederClass.js";
 
 //let images = {token: loadImage("1.any token.png"),}; //for HTML integration
 let counter = 10;
-let fakeState = "unreal";
-let birbState = "unreal";
 //FEEDER IMPORT
 let button = new Feeder(1, 1, 1);
 let allTokens = new Colony(token, birb, bluzuk, crab, dolphin, fake, counter);
@@ -19,20 +17,11 @@ function feederBar() {
 
 //ADDING TO THE FOOD COUNTER
 function mouseClicked() {
-  randomNumber = Math.round(random(1, 2, 3, 4));
-  rN = randomNumber;
   if (button.hitTest() && counter < 100) {
-    counter = counter + rN;
+    counter = counter + 2;
     if (counter >= 100) {
       counter = 100;
     }
-    if (rN === 2) {
-      fakeState = "real";
-    }
-    //else if (rN !== 3) {
-
-    //   birbState = "real";
-    // }
   }
   //console.log(counter);
 }
@@ -46,7 +35,6 @@ function mouseClicked() {
 function draw() {
   background(50, 50, 40);
   feederBar();
-  button.displayButton(1, 1, 1);
-  //allTokens.seatCycle();
+  button.displayButton();
   allTokens.spawnConditions();
 }

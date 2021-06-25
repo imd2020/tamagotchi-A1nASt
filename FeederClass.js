@@ -1,6 +1,6 @@
 //BUTTON
 export default class Feeder {
-  constructor(x, y, s, counter) {
+  constructor(x, y, s) {
     this.x = x;
     this.y = y;
     this.s = s;
