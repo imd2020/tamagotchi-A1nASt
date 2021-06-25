@@ -23,9 +23,9 @@ export default class Individual {
     scale(this.s);
     image(this.img, 0 * this.s + this.x, 0 * this.s + this.y);
     pop();
-    // if (counter === 10) {
-    //   return true;
-    // }
+    if (counter >= 10 && tokenCount < maxSeats) {
+      tokenState = "present";
+    }
   }
 
   // state() {

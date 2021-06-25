@@ -52,23 +52,25 @@ export default class Colony {
       this.tokenCount <= this.maxSeats;
       this.tokenCount++
     ) {
-      if (counter >= 10) {
+      //let spot = space[tokenCount];
+      if (this.counter >= 10 && this.tokenCount < this.maxSeats) {
+        //spot.state = "present";
         this.token.body();
-        if (counter >= 20) {
+        if (this.counter >= 20) {
           if (tokenCount >= 1) {
             if (rN === 2) {
               this.birb.body();
             } else if (rN !== 2) {
               if (counter < 50) {
-                this.fake.body();
-                this.dolphin.body();
+                // this.fake.body();
+                // this.dolphin.body();
               } else if (counter >= 50) {
-                this.bluzuk.body();
+                // this.bluzuk.body();
               }
             }
           }
-          if (this.tokenCount === 10) {
-            this.crab.body();
+          if (tokenCount === 10) {
+            // this.crab.body();
           }
         }
       }
