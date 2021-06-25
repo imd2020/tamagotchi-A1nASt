@@ -11,7 +11,7 @@ export default class Individual {
     this.x = x;
     this.y = y;
     this.s = s;
-    this.img = loadImage(img);
+    this.img = img;
   }
 
   body() {

@@ -2,15 +2,17 @@ import gsap from "./gsap.min.js";
 
 import Colony from "./ColonyClass.js";
 import Feeder from "./FeederClass.js";
+//GAME SCREEN STATE
 let gameState = "start";
-//let images = {token: loadImage("1.any token.png"),}; //for HTML integration
+//PARAMETER STUFF
 let xPosBar = 0;
-let tokenArray = [];
 let counter = 25;
+let tokenArray = []; //was supposed to determine the win condition
 //FEEDER IMPORT
 let tributeButton = new Feeder(1, 1, 1, "OFFER TRIBUTE");
 let startButton = new Feeder(1, 1, 1, "START GAME");
 let restartButton = new Feeder(1, 1, 1, "RESTART GAME");
+//COLONY IMPORT
 let allTokens = new Colony(token, birb, bluzuk, crab, dolphin, fake, xPosBar);
 
 //ADDING TO THE FOOD COUNTER
