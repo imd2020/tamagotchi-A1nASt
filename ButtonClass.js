@@ -1,5 +1,5 @@
 //BUTTON
-export default class Feeder {
+export default class Button {
   constructor(x, y, s, text) {
     this.x = x;
     this.y = y;

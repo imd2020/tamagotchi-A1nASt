@@ -1,19 +1,42 @@
-import gsap from "./gsap.min.js";
-import Colony from "./ColonyClass.js";
-import Feeder from "./FeederClass.js";
+window.draw = draw;
+window.mouseClicked = mouseClicked;
+angleMode(DEGREES);
+
+// import gsap from "./html/gsap.min.js";
+import Individual from "./IndividualClass.js";
+import Button from "./ButtonClass.js";
 
 //GAME SCREEN STATE
 let gameState = "start";
-//PARAMETER STUFF
+
+//PARAMETER
 let xPosBar = 0;
 let counter = 25;
-let tokenArray = []; //was supposed to determine the win condition (see ColonyClass.js), but it doesn't actually do anything
-//FEEDER IMPORT
-let tributeButton = new Feeder(1, 1, 1, "OFFER TRIBUTE");
-let startButton = new Feeder(200, 500, 1, "START GAME");
-let restartButton = new Feeder(400, 500, 1, "RESTART GAME");
-//COLONY IMPORT
-let allTokens = new Colony(token, birb, bluzuk, crab, dolphin, fake, xPosBar);
+
+//TOKEN IMAGES
+let images = {
+  token: loadImage("./Images/1.any token.png"),
+  birb: loadImage("./Images/2.birb token.png"),
+  bluzuk: loadImage("./Images/3.bluzuk token.png"),
+  crab: loadImage("./Images/4.crab token.png"),
+  dolphin: loadImage("./Images/5.dolphin token.png"),
+  fake: loadImage("./Images/6.fake token.png"),
+};
+
+//CLASS IMPORTS
+//Button
+let tributeButton = new Button(1, 1, 1, "OFFER TRIBUTE");
+let startButton = new Button(200, 500, 1, "START GAME");
+let restartButton = new Button(400, 500, 1, "RESTART GAME");
+//Indiviual
+let token = new Individual(-160, -450, 0.5, images.token);
+let birb = new Individual(-280, -180, 0.67, images.birb);
+let bluzuk = new Individual(-290, 30, 0.49, images.bluzuk);
+let crab = new Individual(200, 50, 0.49, images.crab);
+let dolphin = new Individual(50, -280, 0.48, images.dolphin);
+let fake = new Individual(10, 300, 0.5, images.fake);
+
+
 
 //ADDING TO THE FOOD COUNTER
 function mouseClicked() {
@@ -47,9 +70,69 @@ function hunger() {
   }
 }
 
-function feederBar() {
+function ButtonBar() {
   fill(100, 0, 100);
   rect(200, 0, xPosBar, 20);
+}
+
+function spawnConditions() {
+  //STARTER TOKEN
+  if (xPosBar >= 20 && xPosBar < 40) {
+    token.body();
+  }
+  //ADD BIRB
+  if (xPosBar >= 40 && xPosBar < 60) {
+    token.body(); //keep starter token
+    birb.body();
+  }
+  //ADD BLUZUK
+  if (xPosBar >= 60 && xPosBar < 80) {
+    token.body(); //keep starter token
+    birb.body(); //keep birb
+    bluzuk.body();
+  }
+
+  if (xPosBar >= 80 && xPosBar < 100) {
+    token.body(); //keep starter token
+    birb.body(); //keep birb
+    bluzuk.body(); //keep bluzuk
+  }
+  //ADD DOLPHIN
+  if (xPosBar >= 100 && xPosBar < 120) {
+    token.body(); //keep starter token
+    birb.body(); //keep birb
+    bluzuk.body(); //keep bluzuk
+    dolphin.body();
+  }
+
+  if (xPosBar >= 120 && xPosBar < 140) {
+    token.body(); //keep starter token
+    birb.body(); //keep birb
+    bluzuk.body(); //keep bluzuk
+    dolphin.body(); //keep dolphin
+  }
+
+  if (xPosBar >= 140 && xPosBar < 160) {
+    token.body(); //keep starter token
+    birb.body(); //keep birb
+    bluzuk.body(); //keep bluzuk
+    dolphin.body(); //keep dolphin
+  }
+
+  if (xPosBar >= 160 && xPosBar < 180) {
+    token.body(); //keep starter token
+    birb.body(); //keep birb
+    bluzuk.body(); //keep bluzuk
+    dolphin.body(); //keep dolphin
+  }
+  //ADD CRAB
+  if (xPosBar >= 180) {
+    token.body(); //keep starter token
+    birb.body(); //keep birb
+    bluzuk.body(); //keep bluzuk
+    dolphin.body(); //keep dolphin
+    crab.body();
+  }
 }
 
 //MAIN GAME SCREEN
@@ -58,12 +141,12 @@ function tamagotchi() {
   //START BUTTON
   restartButton.displayButton();
   hunger();
-  feederBar();
+  ButtonBar();
   tributeButton.displayButton();
-  allTokens.spawnConditions();
+  spawnConditions();
 }
 
-//FANCY ANIMATION STUFF BECAUSE I HAVE TO PART-1
+//FANCY ANIMATION STUFF BECAUSE I HAVE TO PART 1
 const welcome = {
   titleSize: 0,
   textSize: 100,
@@ -89,7 +172,7 @@ function startScreen() {
   //return true;
 }
 
-//FANCY ANIMATION STUFF BECAUSE I HAVE TO PART-2 (actually looks kinda cool)
+// FANCY ANIMATION STUFF BECAUSE I HAVE TO PART 2 (actually looks kinda cool)
 function welcomeAnimation() {
   gsap.to(welcome, {
     duration: 5,
@@ -101,31 +184,31 @@ function welcomeAnimation() {
 }
 welcomeAnimation();
 
-//NOT ACTUALLY USED 'COUSE I'M TOO TIRED TO THINK AND DON'T HAVE TIME
-function endScreen() {
-  background(50, 50, 40);
-  //START BUTTON
-  restartButton.displayButton();
-  fill(200, 200, 200);
-  stroke(100, 100, 100);
-  textAlign(CENTER);
-  textSize(30);
-  text("Game Over, party pooper. ;(", 350, 200);
-}
-function successScreen() {
-  background(50, 50, 40);
-  //START BUTTON
-  restartButton.displayButton();
-  fill(200, 200, 200);
-  stroke(100, 100, 100);
-  textAlign(CENTER);
-  textSize(30);
-  text(
-    "Success! You are the Token-Party food supplier! I mean king! Yay!",
-    350,
-    200
-  );
-}
+// //END SCREENS
+// function endScreen() {
+//   background(50, 50, 40);
+//   //START BUTTON
+//   restartButton.displayButton();
+//   fill(200, 200, 200);
+//   stroke(100, 100, 100);
+//   textAlign(CENTER);
+//   textSize(30);
+//   text("Game Over, party pooper. ;(", 350, 200);
+// }
+// function successScreen() {
+//   background(50, 50, 40);
+//   //START BUTTON
+//   restartButton.displayButton();
+//   fill(200, 200, 200);
+//   stroke(100, 100, 100);
+//   textAlign(CENTER);
+//   textSize(30);
+//   text(
+//     "Success! You are the Token-Party food supplier! I mean king! Yay!",
+//     350,
+//     200
+//   );
+// }
 
 function draw() {
   if (gameState === "start") {
@@ -134,13 +217,8 @@ function draw() {
   if (gameState === "play") {
     tamagotchi();
   }
-  // if (tokenArray[4] === "token") {
-  //   gameState = "victory";
-  // }
   if (gameState === "restart") {
     startScreen();
   }
 }
 
-//PS.:  This code seems like a mess to me.
-//PPS.: Whoever has to read this, I'm sorry. Have a nice day. :)
