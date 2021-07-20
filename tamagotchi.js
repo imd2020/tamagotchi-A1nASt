@@ -2,7 +2,7 @@ window.draw = draw;
 window.mouseClicked = mouseClicked;
 angleMode(DEGREES);
 
-// import gsap from "./html/gsap.min.js";
+import gsap from "./html/gsap.min.js";
 import Individual from "./IndividualClass.js";
 import Button from "./ButtonClass.js";
 
